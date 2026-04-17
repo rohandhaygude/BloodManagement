@@ -20,7 +20,7 @@ const Requests = () => {
 
   const fetchRequests = async () => {
     try {
-      const { data } = await axios.get('http://localhost:3000/api/v1/blood/all', getAuthConfig());
+      const { data } = await axios.get('https://bloodmanagement-9tbn.onrender.com/api/v1/blood/all', getAuthConfig());
       if (data.success) {
         setRequests(data.bloodRequests);
       }
@@ -37,7 +37,7 @@ const Requests = () => {
 
   const handleStatusUpdate = async (id, status) => {
     try {
-      const { data } = await axios.put(`http://localhost:3000/api/v1/blood/update/${id}`, { status }, getAuthConfig());
+      const { data } = await axios.put(`https://bloodmanagement-9tbn.onrender.com/api/v1/blood/update/${id}`, { status }, getAuthConfig());
       if (data.success) {
         toast.success('Status updated');
         fetchRequests();
@@ -50,7 +50,7 @@ const Requests = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Delete this request permanently?')) {
       try {
-        const { data } = await axios.delete(`http://localhost:3000/api/v1/blood/delete/${id}`, getAuthConfig());
+        const { data } = await axios.delete(`https://bloodmanagement-9tbn.onrender.com/api/v1/blood/delete/${id}`, getAuthConfig());
         if (data.success) {
           toast.success('Request deleted');
           fetchRequests();
@@ -64,7 +64,7 @@ const Requests = () => {
   const handleAddRequest = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('http://localhost:3000/api/v1/blood/add', newRequest, getAuthConfig());
+      const { data } = await axios.post('https://bloodmanagement-9tbn.onrender.com/api/v1/blood/add', newRequest, getAuthConfig());
       if (data.success) {
         toast.success('Request added');
         setIsModalOpen(false);

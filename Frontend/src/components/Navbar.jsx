@@ -15,7 +15,7 @@ const Navbar = () => {
       if (user?.role === "Admin") rolePath = "admin";
       else if (user?.role === "Donor") rolePath = "donor";
 
-      await axios.get(`http://localhost:3000/api/v1/user/${rolePath}/logout`, {
+      await axios.get(`https://bloodmanagement-9tbn.onrender.com/api/v1/user/${rolePath}/logout`, {
         withCredentials: true,
       });
       toast.success("Logged out successfully");

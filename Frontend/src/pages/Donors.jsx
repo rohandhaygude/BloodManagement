@@ -16,7 +16,7 @@ const Donors = () => {
   useEffect(() => {
     const fetchDonors = async () => {
       try {
-        const { data } = await axios.get('http://localhost:3000/api/v1/user/donors', getAuthConfig());
+        const { data } = await axios.get('https://bloodmanagement-9tbn.onrender.com/api/v1/user/donors', getAuthConfig());
         if (data.success) {
           setDonors(data.donors);
         }

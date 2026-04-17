@@ -23,8 +23,8 @@ const Register = () => {
   const navigateTo = useNavigate();
 
   const endpointMap = {
-    Patient: "http://localhost:3000/api/v1/user/register/patient",
-    Donor:   "http://localhost:3000/api/v1/user/register/donor",
+    Patient: "https://bloodmanagement-9tbn.onrender.com/api/v1/user/register/patient",
+    Donor:   "https://bloodmanagement-9tbn.onrender.com/api/v1/user/register/donor",
   };
 
   const handleRegistration = async (e) => {

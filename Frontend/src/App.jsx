@@ -38,8 +38,8 @@ const App = () => {
     // Check for regular user authentication (Patient/Donor)
     const fetchUser = async () => {
       const endpoints = [
-        "http://localhost:3000/api/v1/user/patient/me",
-        "http://localhost:3000/api/v1/user/donor/me",
+        "https://bloodmanagement-9tbn.onrender.com/api/v1/user/patient/me",
+        "https://bloodmanagement-9tbn.onrender.com/api/v1/user/donor/me",
       ];
 
       for (const url of endpoints) {
@@ -65,7 +65,7 @@ const App = () => {
 
       if (isAdmin && adminToken) {
         try {
-          const response = await axios.get('http://localhost:3000/api/v1/user/admin/me', {
+          const response = await axios.get('https://bloodmanagement-9tbn.onrender.com/api/v1/user/admin/me', {
             headers: { Authorization: `Bearer ${adminToken}` },
             withCredentials: true
           });

@@ -20,7 +20,7 @@ const BloodRequestForm = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/api/v1/blood/add",
+        "https://bloodmanagement-9tbn.onrender.com/api/v1/blood/add",
         {
           patientName: `${firstName} ${lastName}`.trim(),
           bloodGroup,

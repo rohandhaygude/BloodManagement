@@ -18,7 +18,7 @@ const Layout = () => {
       }
 
       try {
-        await axios.get('http://localhost:3000/api/v1/user/admin/me', {
+        await axios.get('https://bloodmanagement-9tbn.onrender.com/api/v1/user/admin/me', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setIsAuthenticated(true);

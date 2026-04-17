@@ -16,7 +16,7 @@ const MessageForm = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/message/send",
+        "https://bloodmanagement-9tbn.onrender.com/api/v1/message/send",
         { firstName, lastName, email, phone, message },
         {
           withCredentials: true,
