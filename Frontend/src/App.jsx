@@ -11,6 +11,7 @@ import About from './pages/About'
 import Request from './pages/Request'
 import PublicLogin from './pages/Login' // Public login
 import Register from './pages/Register'
+import PatientDashboard from './pages/PatientDashboard'
 
 // Admin Pages
 import AdminLogin from './pages/Login' // Dashboard login (renamed to avoid conflict)
@@ -31,7 +32,8 @@ const App = () => {
     setIsAuthenticated,
     setUser,
     setIsAdminAuthenticated,
-    setAdminUser
+    setAdminUser,
+    setAuthLoading
   } = useContext(Context);
 
   useEffect(() => {
@@ -47,6 +49,7 @@ const App = () => {
           const response = await axios.get(url, { withCredentials: true });
           setIsAuthenticated(true);
           setUser(response.data.user);
+          setAuthLoading(false);
           return;
         } catch {
           // try next endpoint
@@ -56,6 +59,7 @@ const App = () => {
       // None succeeded — user is not logged in
       setIsAuthenticated(false);
       setUser({});
+      setAuthLoading(false);
     };
 
     // Check for admin authentication
@@ -98,6 +102,7 @@ const App = () => {
           <Route path='/about' element={<><Navbar /><About /></>} />
           <Route path='/login' element={<><Navbar /><PublicLogin /></>} />
           <Route path='/register' element={<><Navbar /><Register /></>} />
+          <Route path='/patient/dashboard' element={<PatientDashboard />} />
 
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />

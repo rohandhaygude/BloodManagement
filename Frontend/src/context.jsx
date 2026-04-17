@@ -7,6 +7,7 @@ export const ContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
   const [adminUser, setAdminUser] = useState({});
+  const [authLoading, setAuthLoading] = useState(true);
 
   return (
     <Context.Provider value={{
@@ -17,7 +18,9 @@ export const ContextProvider = ({ children }) => {
       isAdminAuthenticated,
       setIsAdminAuthenticated,
       adminUser,
-      setAdminUser
+      setAdminUser,
+      authLoading,
+      setAuthLoading
     }}>
       {children}
     </Context.Provider>
