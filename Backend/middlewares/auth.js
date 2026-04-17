@@ -9,11 +9,15 @@ import jwt from "jsonwebtoken";
  */
 export const isAuthenticated = (roles = []) =>
   catchAsyncErrors(async (req, res, next) => {
-    // 1️⃣ Get token from cookies (check all possible tokens)
-    const token =
+    let token =
       req.cookies.adminToken ||
       req.cookies.patientToken ||
       req.cookies.donorToken;
+
+    // 2️⃣ If no cookie, check Authorization header
+    if (!token && req.headers.authorization) {
+      token = req.headers.authorization.split(" ")[1];
+    }
 
     if (!token) {
       return next(new ErrorHandler("User not authenticated", 401));
