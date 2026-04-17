@@ -1,8 +1,5 @@
 import axios from "axios";
 
-const API = axios.create({
-  baseURL: "https://bloodmanagement-9tbn.onrender.com",
-  withCredentials: true,
-});
+const API_URL = "https://bloodmanagement-9tbn.onrender.com"
 
 export default API;
